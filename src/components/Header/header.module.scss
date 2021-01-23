@@ -18,12 +18,12 @@
 }
 
 .link {
-  color: $link;
+  color: $primary;
   font-weight: 300;
   text-decoration: none;
   transition: all $transition ease-in;
 
   &:hover {
-    color: rgba($link, 0.5);
+    color: rgba($primary, 0.5);
   }
 }

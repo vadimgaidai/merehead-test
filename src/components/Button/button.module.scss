@@ -29,14 +29,14 @@
 
 .default {
   color: $primary;
-  background-color: rgba($secondary, 0.7);
+  background-color: rgba($white, 0.7);
 }
 
 .primary {
-  color: $secondary;
-  background-color: $link;
+  color: $white;
+  background-color: $primary;
 }
 
 .icon {
-  stroke: $secondary;
+  stroke: $white;
 }

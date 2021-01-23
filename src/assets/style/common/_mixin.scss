@@ -11,7 +11,7 @@
 
 @mixin card() {
   padding: 30px;
-  background-color: $secondary;
+  background-color: $primary;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -20,7 +20,7 @@
   transition: transform $transition ease-in-out,
     box-shadow $transition ease-in-out;
   &:hover {
-    box-shadow: 0 4px 32px 0 rgba($secondary, 0.28);
+    box-shadow: 0 4px 32px 0 rgba($white, 0.28);
     transform: translateY(-2px);
   }
 }
