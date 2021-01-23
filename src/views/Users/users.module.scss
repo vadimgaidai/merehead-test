@@ -3,17 +3,17 @@
 }
 
 .caption {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 15px;
   color: $secondary;
+  font-weight: 300;
   font-size: 40px;
+  text-align: center;
   text-align: center;
 }
 
-.item {
+.text {
   color: $secondary;
   font-size: 18px;
   line-height: 35px;
+  text-align: center;
 }

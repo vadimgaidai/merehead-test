@@ -47,6 +47,7 @@ module.exports = {
         destructuring: 'all',
       },
     ],
+    'react/jsx-fragments': 0,
     'arrow-body-style': [2, 'as-needed'],
     'no-unused-expressions': [
       2,
