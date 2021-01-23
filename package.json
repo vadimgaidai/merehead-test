@@ -66,7 +66,6 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
   },
-  "proxy": "http://77.120.241.80:8811/api/",
   "jest": {
     "roots": [
       "<rootDir>/src"

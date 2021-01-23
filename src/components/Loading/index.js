@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { Loader } from 'react-feather'
 
-import { icon } from './loading.module.scss'
+import { content, icon } from './loading.module.scss'
 
-const Loading = ({ children, loading: isLoading }) => (
+const Loading = ({ children, size = 30, loading: isLoading }) => (
   <SwitchTransition>
     <CSSTransition
       key={isLoading}
@@ -13,7 +13,13 @@ const Loading = ({ children, loading: isLoading }) => (
       timeout={500}
       unmountOnExit
     >
-      {isLoading ? <Loader size={30} className={icon} /> : <>{children}</>}
+      {isLoading ? (
+        <div className={content}>
+          <Loader size={size} className={icon} />{' '}
+        </div>
+      ) : (
+        <>{children}</>
+      )}
     </CSSTransition>
   </SwitchTransition>
 )
@@ -21,6 +27,7 @@ const Loading = ({ children, loading: isLoading }) => (
 Loading.propTypes = {
   children: PropTypes.node,
   loading: PropTypes.bool,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 export default Loading

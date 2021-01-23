@@ -5,7 +5,7 @@ import { LOAD_USERS } from '../../redux/actionTypes'
 
 import Loading from '../../components/Loading'
 
-import { section, caption, text } from './users.module.scss'
+import { section, caption, grid, text } from './users.module.scss'
 import User from '../../components/User'
 
 const Trial = () => {
@@ -27,7 +27,11 @@ const Trial = () => {
       <h1 className={caption}>Users page</h1>
       <Loading loading={isLoading}>
         {users.length ? (
-          users.map(({ id, name }) => <User to={id} name={name} />)
+          <div className={grid}>
+            {users.map(({ id, first_name: name }) => (
+              <User key={id} to={id} name={name} />
+            ))}
+          </div>
         ) : (
           <p className={text}>No data :(</p>
         )}

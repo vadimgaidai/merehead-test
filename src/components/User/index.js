@@ -1,10 +1,16 @@
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const User = ({ to, name }) => <NavLink to={`user/${to}`}>{name}</NavLink>
+import { card } from './user.module.scss'
+
+const User = ({ to, name }) => (
+  <NavLink to={`user/${to}`} className={card}>
+    {name}
+  </NavLink>
+)
 
 User.propTypes = {
-  to: PropTypes.string,
+  to: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   name: PropTypes.string,
 }
 

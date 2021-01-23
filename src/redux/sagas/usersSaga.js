@@ -15,14 +15,14 @@ export function* loadUsersSaga() {
   }
 }
 
-const loadUser = async () => {
-  const { data } = await window.$api.users.getUser()
+const loadUser = async (userId) => {
+  const { data } = await window.$api.users.getUser(userId)
   return data
 }
 
-export function* loadUserSaga() {
+export function* loadUserSaga({ userId }) {
   try {
-    const { data } = yield call(() => loadUser())
+    const { data } = yield call(() => loadUser(userId))
     yield put(setUser(data))
   } catch (e) {
     console.error(e)

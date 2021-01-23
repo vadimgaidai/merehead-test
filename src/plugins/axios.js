@@ -3,7 +3,7 @@ import axiosLib from 'axios'
 const { REACT_APP_URL } = process.env
 
 const instance = axiosLib.create({
-  baseURL: REACT_APP_URL,
+  baseURL: 'https://reqres.in/api',
 })
 
 const responseFulfilled = (response) => {
