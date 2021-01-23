@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import Button from '../../components/Button'
-import Loading from '../../components/Loading'
+import { Trash2 } from 'react-feather'
+
 import { LOAD_USER } from '../../redux/actionTypes'
 import { setUser } from '../../redux/modules/users'
-import {} from './user.module.scss'
+
+import Button from '../../components/Button'
+import Loading from '../../components/Loading'
+
+import { section, buttons, buttonContent } from './user.module.scss'
 
 const User = () => {
   const { id: userId } = useParams()
@@ -24,12 +28,21 @@ const User = () => {
   }, [dispatch, userId])
 
   return (
-    <Loading loading={isLoading}>
-      <main>
-        <Button loading={isLoading}>Change user</Button>
-        <Button>Delete User</Button>
-      </main>
-    </Loading>
+    <main className={section}>
+      <Loading loading={isLoading}>
+        <div className={buttons}>
+          <Button loading={isLoading} typeButton="primary">
+            Change user
+          </Button>
+          <Button typeButton="alert">
+            <span className={buttonContent}>
+              Delete User <Trash2 />
+            </span>
+          </Button>
+        </div>
+        <p>asd</p>
+      </Loading>
+    </main>
   )
 }
 

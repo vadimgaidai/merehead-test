@@ -2,12 +2,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Loader } from 'react-feather'
-import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import classes from './button.module.scss'
 import Loading from '../Loading'
 
-const { button, icon } = classes
+const { button, content } = classes
 
 const Button = ({
   children,
@@ -26,7 +24,7 @@ const Button = ({
       onClick={onClickHandler}
     >
       <Loading loading={isLoading} size="15">
-        <span>{children}</span>
+        <span className={content}>{children}</span>
       </Loading>
     </button>
   )

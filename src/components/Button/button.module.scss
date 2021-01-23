@@ -4,8 +4,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 3rem;
-  padding: 1rem;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 16px;
   border: 0;
   cursor: pointer;
   transition: opacity $transition, box-shadow $transition;
@@ -27,14 +28,27 @@
   }
 }
 
+.content {
+}
+
 .default {
-  color: $primary;
+  color: $black;
   background-color: rgba($white, 0.7);
 }
 
 .primary {
   color: $white;
   background-color: $primary;
+}
+
+.alert {
+  color: $white;
+  background-color: $error;
+}
+
+.success {
+  color: $white;
+  background-color: $success;
 }
 
 .icon {

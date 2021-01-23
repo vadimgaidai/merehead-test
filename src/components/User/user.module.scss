@@ -1,4 +1,6 @@
 .card {
+  text-decoration: none;
+  background-color: rgba($primary, 0.75);
   @include card();
   @include hover();
 }

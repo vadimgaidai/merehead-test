@@ -1,1 +1,19 @@
-//
+.section {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto 0;
+  padding: 0 15px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 20px;
+}
+
+.buttonContent {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  column-gap: 7px;
+}
