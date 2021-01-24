@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 import Form from '../../components/Form'
 import Input from '../../components/Input'
 import { section } from './createUser.module.scss'
-import { maxLength } from '../../utils/validation'
+import { email, maxLength } from '../../utils/validation'
 
 const CreateUser = () => {
   const [isLoading, setLoading] = useState(false)
@@ -17,12 +17,24 @@ const CreateUser = () => {
     getFieldProps,
   } = useFormik({
     initialValues: {
-      name: '',
+      first_name: '',
+      last_name: '',
+      email: '',
     },
-    validate({ name }) {
-      if (maxLength(name, 15)) {
+    validate({
+      first_name: firstName,
+      last_name: lastName,
+      email: emailValue,
+    }) {
+      if (
+        maxLength(firstName, 15) ||
+        maxLength(lastName, 15) ||
+        email(emailValue)
+      ) {
         return {
-          name: maxLength(name, 15),
+          first_name: maxLength(firstName, 15),
+          last_name: maxLength(lastName, 15),
+          email: email(emailValue),
         }
       }
       return {}
@@ -47,14 +59,38 @@ const CreateUser = () => {
         onSubmit={handleSubmit}
       >
         <Input
-          preloader="User name"
-          label="Name"
-          {...getFieldProps('name')}
-          errorValue={touched.name && errors.name ? errors.name : ''}
+          preloader="User first name"
+          label="First name"
+          {...getFieldProps('first_name')}
+          errorValue={
+            touched.first_name && errors.first_name ? errors.first_name : ''
+          }
           isReset={isLoading}
-          id="name"
-          name="name"
+          id="first_name"
+          name="first_name"
           type="text"
+        />
+        <Input
+          preloader="User last name"
+          label="Last name"
+          {...getFieldProps('last_name')}
+          errorValue={
+            touched.last_name && errors.last_name ? errors.last_name : ''
+          }
+          isReset={isLoading}
+          id="last_name"
+          name="last_name"
+          type="text"
+        />
+        <Input
+          preloader="User email"
+          label="Email"
+          {...getFieldProps('email')}
+          errorValue={touched.email && errors.email ? errors.email : ''}
+          isReset={isLoading}
+          id="email"
+          name="email"
+          type="email"
         />
       </Form>
     </main>

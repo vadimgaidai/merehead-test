@@ -1,13 +1,23 @@
 .section {
+  display: grid;
+  align-content: center;
+  justify-content: center;
   width: 100%;
   max-width: $max-width;
   margin: 0 auto 0;
   padding: 0 15px;
 }
 
+.content {
+  display: grid;
+  width: 100%;
+  max-width: 600px;
+  row-gap: 30px;
+}
+
 .buttons {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 50%);
   column-gap: 20px;
 }
 

@@ -15,7 +15,7 @@ const Loading = ({ children, size = 30, loading: isLoading }) => (
     >
       {isLoading ? (
         <div className={content}>
-          <Loader size={size} className={icon} />{' '}
+          <Loader size={size} className={icon} />
         </div>
       ) : (
         <>{children}</>

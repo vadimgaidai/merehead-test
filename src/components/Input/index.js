@@ -29,6 +29,10 @@ const Input = ({
     }
   }, [isReset])
 
+  useEffect(() => {
+    inputRef.current.value = value
+  }, [value])
+
   const onChangeHandler = (event) => {
     event.preventDefault()
     onChange(event)

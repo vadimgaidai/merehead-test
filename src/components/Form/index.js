@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import Button from '../Button'
 
-import { form, title } from './form.module.scss'
+import { form, title, content } from './form.module.scss'
 
 const Form = ({
   title: tileValue,
@@ -20,7 +20,7 @@ const Form = ({
   return (
     <form className={form} onSubmit={onSubmitHandler}>
       <h2 className={title}>{tileValue}</h2>
-      <div>{children}</div>
+      <div className={content}>{children}</div>
       <Button type="submit" typeButton={typeButton} loading={isLoading}>
         {buttonValue}
       </Button>
