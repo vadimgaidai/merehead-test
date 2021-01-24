@@ -6,6 +6,19 @@
   &:after {
     box-sizing: border-box;
   }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    border-radius: 4px;
+  }
 }
 
 html {
@@ -15,6 +28,7 @@ html {
 }
 
 body {
+  overflow-y: auto;
   font: 16px/1.5 $font-primary;
   background-color: $black;
 }

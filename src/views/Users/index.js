@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Pagination from 'react-js-pagination'
 
 import { LOAD_USERS } from '../../redux/actionTypes'
 
@@ -10,17 +11,26 @@ import User from '../../components/User'
 
 const Trial = () => {
   const dispatch = useDispatch()
-  const { users } = useSelector((selector) => selector?.users)
+  const { users, pagination } = useSelector((selector) => selector?.users)
 
   const [isLoading, setLoading] = useState(true)
 
-  useEffect(() => {
+  const onLoadData = async (pageNumber = 1) => {
     setLoading(true)
-    ;(async () => {
-      await dispatch({ type: LOAD_USERS })
-    })()
+    await dispatch({ type: LOAD_USERS, pageNumber })
     setLoading(false)
-  }, [dispatch])
+  }
+
+  useEffect(() => {
+    ;(async () => {
+      await onLoadData()
+    })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onChangePage = (pageNumber) => {
+    onLoadData(pageNumber)
+  }
 
   return (
     <main className={section}>
@@ -28,12 +38,33 @@ const Trial = () => {
       <Loading loading={isLoading}>
         {users.length ? (
           <div className={grid}>
-            {users.map(({ id }) => (
-              <User key={id} to={id} />
-            ))}
+            {users.map(
+              ({ id, first_name: firstName, last_name: lastName, avatar }) => (
+                <User
+                  key={id}
+                  to={id}
+                  firstName={firstName}
+                  lastName={lastName}
+                  image={avatar}
+                />
+              )
+            )}
           </div>
         ) : (
           <p className={text}>No data :(</p>
+        )}
+        {users.length && (
+          <Pagination
+            activePage={pagination.page}
+            itemsCountPerPage={pagination.perPage}
+            totalItemsCount={pagination.total}
+            pageRangeDisplayed={pagination.totalPages}
+            activeClass="pagination__active"
+            disabledClass="pagination__disabled"
+            itemClass="pagination__item"
+            linkClass="pagination__link"
+            onChange={onChangePage}
+          />
         )}
       </Loading>
     </main>

@@ -1,15 +1,15 @@
 import { call, put } from 'redux-saga/effects'
 import { setUser, setUsers } from '../modules/users'
 
-const loadUsers = async () => {
-  const { data } = await window.$api.users.getUsers()
+const loadUsers = async (pageNumber) => {
+  const { data } = await window.$api.users.getUsers(pageNumber)
   return data
 }
 
-export function* loadUsersSaga() {
+export function* loadUsersSaga({ pageNumber }) {
   try {
-    const { data } = yield call(() => loadUsers())
-    yield put(setUsers(data))
+    const payload = yield call(() => loadUsers(pageNumber))
+    yield put(setUsers(payload))
   } catch (e) {
     console.error(e)
   }
