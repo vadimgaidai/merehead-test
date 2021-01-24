@@ -10,6 +10,11 @@
   @include card();
   /* stylelint-disable */
   cursor: auto;
+
+  @include media('mobile') {
+    padding: 15px;
+    min-width: calc(100vw - 30px);
+  }
 }
 
 .title {
