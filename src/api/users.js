@@ -5,4 +5,7 @@ export default ({ axios }) => ({
   getUser(userId) {
     return axios.get(`user/${userId}`)
   },
+  setUser(data) {
+    return axios.post('users', { ...data })
+  },
 })

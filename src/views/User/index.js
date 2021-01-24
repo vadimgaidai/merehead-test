@@ -40,7 +40,6 @@ const User = () => {
             </span>
           </Button>
         </div>
-        <p>asd</p>
       </Loading>
     </main>
   )

@@ -28,8 +28,8 @@ const Trial = () => {
       <Loading loading={isLoading}>
         {users.length ? (
           <div className={grid}>
-            {users.map(({ id, first_name: name }) => (
-              <User key={id} to={id} name={name} />
+            {users.map(({ id }) => (
+              <User key={id} to={id} />
             ))}
           </div>
         ) : (

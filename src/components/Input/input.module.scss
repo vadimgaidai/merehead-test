@@ -1,0 +1,51 @@
+.label {
+  position: relative;
+  display: block;
+}
+
+.text {
+  color: $black;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 7px 10px 7px 0;
+  color: $black;
+  font-weight: 300;
+  font-size: 16.5px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 0.2rem solid $black;
+  outline: none;
+  transition: border-color $transition ease-in;
+
+  &:focus {
+    border-bottom-color: $primary;
+  }
+
+  &Error {
+    border-bottom-color: $error;
+  }
+
+  &::placeholder {
+    color: rgba($black, 0.5);
+  }
+}
+
+.error {
+  position: absolute;
+  color: $error;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+}

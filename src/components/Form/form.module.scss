@@ -1,0 +1,19 @@
+.form {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  min-width: 600px;
+  max-width: 100%;
+  padding: 35px;
+  background-color: $white;
+  row-gap: 25px;
+  @include card();
+  /* stylelint-disable */
+  cursor: auto;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}

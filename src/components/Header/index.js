@@ -9,6 +9,12 @@ const Header = () => {
       path: '/',
       exact: false,
     },
+    {
+      id: 2,
+      name: 'Create new user',
+      path: '/create-user',
+      exact: false,
+    },
   ]
 
   return (
