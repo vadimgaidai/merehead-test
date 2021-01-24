@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Pagination from 'react-js-pagination'
 
 import { LOAD_USERS } from '../../redux/actionTypes'
 
 import Loading from '../../components/Loading'
+import User from '../../components/User'
 
 import { section, caption, grid, text } from './users.module.scss'
-import User from '../../components/User'
 
 const Trial = () => {
   const dispatch = useDispatch()
   const { users, pagination } = useSelector((selector) => selector?.users)
 
-  const [isLoading, setLoading] = useState(true)
-
   const onLoadData = async (pageNumber = 1) => {
-    setLoading(true)
     await dispatch({ type: LOAD_USERS, pageNumber })
-    setLoading(false)
   }
 
   useEffect(() => {
@@ -35,8 +31,8 @@ const Trial = () => {
   return (
     <main className={section}>
       <h1 className={caption}>Users page</h1>
-      <Loading loading={isLoading}>
-        {users.length ? (
+      <Loading loading={users.length === 0}>
+        {users.length > 0 ? (
           <div className={grid}>
             {users.map(
               ({ id, first_name: firstName, last_name: lastName, avatar }) => (
